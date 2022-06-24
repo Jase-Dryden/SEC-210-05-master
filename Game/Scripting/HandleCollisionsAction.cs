@@ -60,6 +60,7 @@ namespace Unit05.Game.Scripting
             {
                 snake.GrowTail(1);
                 tron.GrowTail(1);
+                // score.AddPoints(1);
             }
         }
 
@@ -75,12 +76,15 @@ namespace Unit05.Game.Scripting
             Actor head2 = tron.GetHead();
             List<Actor> body = snake.GetBody();
             List<Actor> body2 = tron.GetBody();
+            Score score = (Score)cast.GetFirstActor("score");
+            Score score2 = (Score)cast.GetFirstActor("score2");
 
             foreach (Actor segment in body)
             {
                 if (segment.GetPosition().Equals(head.GetPosition()))
                 {
                     isGameOver = true;
+                    score2.AddPoints(1);
                 }
             }
             foreach (Actor segment in body2)
@@ -88,6 +92,7 @@ namespace Unit05.Game.Scripting
                 if (segment.GetPosition().Equals(head2.GetPosition()))
                 {
                     isGameOver = true;
+                    score.AddPoints(1);
                 }
             }
         }
@@ -99,11 +104,15 @@ namespace Unit05.Game.Scripting
             Actor head2 = tron.GetHead();
             List<Actor> body = snake.GetBody();
             List<Actor> body2 = tron.GetBody();
+            Score score = (Score)cast.GetFirstActor("score");
+            Score score2 = (Score)cast.GetFirstActor("score2");
+
             foreach (Actor segment in body)
             {
                 if (segment.GetPosition().Equals(head2.GetPosition()))
                 {
                     isGameOver = true;
+                    score.AddPoints(1);
                 }
             }
             foreach (Actor segment in body2)
@@ -111,6 +120,7 @@ namespace Unit05.Game.Scripting
                 if (segment.GetPosition().Equals(head.GetPosition()))
                 {
                     isGameOver = true;
+                    score2.AddPoints(1);                   
                 }
             }
         }
@@ -123,7 +133,7 @@ namespace Unit05.Game.Scripting
                 Snake tron = (Snake)cast.GetFirstActor("tron");
                 List<Actor> segments = snake.GetSegments();
                 List<Actor> segments2 = tron.GetSegments();
-                Food food = (Food)cast.GetFirstActor("food");
+                Food food = (Food)cast.GetFirstActor("food");              
 
                 // create a "game over" message
                 int x = Constants.MAX_X / 2;

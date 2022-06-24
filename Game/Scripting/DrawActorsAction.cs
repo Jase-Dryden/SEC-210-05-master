@@ -29,13 +29,15 @@ namespace Unit05.Game.Scripting
             List<Actor> segments = snake.GetSegments();
             List<Actor> segment = tron.GetSegments();
             Actor score = cast.GetFirstActor("score");
+            Actor score2 = cast.GetFirstActor("score2");
             Actor food = cast.GetFirstActor("food");
             List<Actor> messages = cast.GetActors("messages");
             
             videoService.ClearBuffer();
             videoService.DrawActors(segments);
             videoService.DrawActors(segment);
-            // videoService.DrawActor(score);
+            videoService.DrawActor(score);
+            videoService.DrawActor(score2);
             // videoService.DrawActor(food);
             videoService.DrawActors(messages);
             videoService.FlushBuffer();

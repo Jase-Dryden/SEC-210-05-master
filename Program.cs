@@ -24,7 +24,8 @@ namespace Unit05
             cast.AddActor("food", new Food());
             cast.AddActor("snake", new Snake(Constants.BLUE,300,300));
             cast.AddActor("tron",new Snake(Constants.RED,600,300));
-            cast.AddActor("score", new Score());
+            cast.AddActor("score", new Score(0,0,1));
+            cast.AddActor("score2", new Score(800,0,2));
 
             // create the services
             KeyboardService keyboardService = new KeyboardService();
